@@ -1,0 +1,143 @@
+P033 - Trauma
+P059 - Dizziness - Nausea
+P019 - Unconscious - syncope
+P020 - Intoxication alcohol
+P002 - Agression - fight - rape
+TI (3.3.3) rescue from danger to fall/jump - hard
+P074 - Palliative patient
+P015 - Epilepsy - convulsions
+TI (3.1.2) free trapped person urgent
+P097 - Collocation (planned)
+P013 - Non-traumatic back pain
+P068 - Urogenital problem
+P011 - Chest pain
+P012 - Non-traumatic abdominal pain
+P026 - Unclear problem
+P001 - Traffic accident
+P031 - Psychiatric problem
+P036 - Heat stroke - solar stroke
+P075 - Cancer patient
+P010 - Respiratory problems
+P009 - Diabetes
+P005 - Wounded by weapon
+P069 - Wounds
+P032 - Allergic reactions
+P004 - Stroke
+P018 - Long-term immobilisation - crushing of body and limbs
+P039 - Cardiac problem (other than thoracic pain)
+FI (1.3.0) fire building
+P066 - Post-operative problem
+P061 - Limb hot or cold
+HG (2.1.1) gas odour
+P003 - Cardiac arrest
+P022 - Intoxication medication
+P034 - Skull trauma
+LO (5.5.2) reinforcement fire truck ladder
+TI (3.2.0) extrication from vehicle
+P016 - Pregnancy - Birth
+P099 - Interhospital transport
+P008 - Patient with defibrillator - pacemaker
+P017 - Non-traumatic bleeding
+P080 - COVID-19
+P021 - Intoxication drugs
+P038 - Person does not answer the call
+P086 - vluchelingen UKR
+P071 - Sick child < 15 years with abdominal pain
+P098 - Collocation (unplanned)
+P029 - Obstruction of the respiratory tract
+P070 - Sick baby < 3 months
+P014 - Electrocution - electrification
+P000 - ARCA DEA
+TI (3.1.1) free trapped person lift
+P006 - Burns
+TI (3.4.0) water rescue
+P007 - Fall from great height (>3 meters)
+P023 - Intoxication (household, agricultural, industrial)
+Police
+P025 - Non-traumatic headache
+TI B(3.9.0) Water problems/pumping building
+TI (3.3.5) hanging rescue
+P035 - Convulsions child <7 years old
+P072 - Sick child < 15 years with fever
+HG (2.1.2) gas leak
+P027 - Animal bite
+P067 - Social problem
+P064 - Nose-throat-ear and dental problem
+FI B(1.2.3) fire outdoor small day
+TI (3.4.1) dredging/hauling/floating
+TI (3.1.3) extrication trapped person
+P063 - Eye problems
+P073 - Sick child < 15 years with respiratory infection
+OOS - Placing out of service
+FI (1.1.0) automatic fire alarm
+P060 - Skin problem
+Test
+FI B(1.3.3) fire building IFDP
+P030 - Hanging and strangulation
+TI B(3.1.11) extrication trapped person t m t underground
+FI B(1.2.1) fire outdoor small
+P024 - CO intoxication
+FI (1.11.0) fire train/tram/metro
+HG (2.3.0) explosion
+FI (1.4.0) fire confined space
+LO (5.1.1) assistance ambulance ladder
+FI (1.5.0) fire odour/check
+TI (3.0.0) general
+TI B(3.1.10) extrication trapped person t m t above
+HG (2.0.0) general
+FI (1.0.0) fire general
+TI (3.3.2) CO intoxication
+HG (2.5.0) annoying odours
+FI B(1.4.2) fire confined space tunnel
+TI (3.6.2) large animal in dange
+FI B(1.4.3) fire confined space t t m
+HG (2.7.0) hazardous goods incident
+TI (3.5.2) risk of element collapse on ground
+HG (2.2.0) explosion risk
+TI (3.1.4) height/depth rescue
+FI B(1.4.1) fire confined space IFDP
+TI (3.3.4) rescue from danger to fall/jump - water
+P065 - Sudden deafness or ringing in the ears
+TI (3.10.0) clean up road
+FI B(1.2.4) fire outdoor small night
+LO (5.1.0) assistance ambulance manpower
+LO (5.5.0) reinforcement topographic visit
+LO (5.5.13) reinforcement measurement team
+FI (1.9.1) fire vehicle small
+TI (3.5.1) risk of building collapse
+FI B(1.1.0) automatic fire alarm IFDP
+P076 - Communication with medical guard / doctor
+P095 - Preventive ambulance
+TI (3.8.2) clear trees from the road
+P028 - Drowning - diving accident
+HG (2.4.0) CO measurement
+TI B(3.1.8) height/depth rescue RISC
+TI (3.3.1) rescue electrocution/electrification
+FI B(1.4.4) fire confined space t t m confirmed
+SI B(4.2.4) Aircraft in distress Full EM type 4
+TI (3.5.3) risk of element collapse high height
+HG (2.6.0) environmental pollution
+P092 - MIP
+SI (4.5.0) ammunition discovery
+LO (5.5.1) reinforcement fire truck pump
+TI B(3.1.12) extrication trapped person truck/bus
+HG B(2.7.1) hazardous goods incident ADR
+TI (3.6.3) animal in the water
+TI (3.9.0) water problems/pumping
+FI B(1.2.2) fire outdoor large
+TI (3.6.1) small animal in danger
+FI (1.8.0) fire building chimney
+SI (4.6.0) train/tram/metro accident
+TI (3.1.5) rescue under debris
+LO (5.5.14) reinforcement railroute
+LO (5.5.16) reinforcement Casualty Extraction Team
+SI B(4.2.3) Aircraft in distress Full EM type 3
+TI B(3.2.1) extrication from vehicle truck bus
+FI (1.3.1) fire high voltage
+SI B(4.2.5) Aircraft in distress Full EM type 5
+FI (1.9.2) fire vehicle large
+HG  B(2.3.1) explosion IFDP - terror
+LO (5.5.0) reinforcement other
+P091 - MIP pre-alert
+SI (4.4.0) underground pipeline rupture
+SI (4.3.0) shipping accident
