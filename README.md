@@ -2,6 +2,8 @@
 
 
 ## Ideas:
+- make a heatmap of the interventions and aed locations, to advise the placement of new aeds
+- identify locations where the average response time was above a certain threshold, where the aed becomes more necessary.
 - Use temporal info and geospatial information to visualize patterns in success
 - heatmaps of action
 - Data Preprocessing:
