@@ -4,20 +4,21 @@ import numpy as np
 import seaborn as sns
 
 
-df = pd.read_csv("aed_geocoords.csv", index_col=0)
+aed = pd.read_csv("aed_geocoords.csv", index_col=0)
 
-df.dropna(subset=["lon", "lat"], inplace=True)
+aed.dropna(subset=["lon", "lat"], inplace=True)
 
 
-df = df[df["lon"] < 10]
+aed = aed[aed["lon"] < 10]
 
 sns.kdeplot(
-    data=df[["lon", "lat"]],
+    data=aed[["lon", "lat"]],
     x="lon",
     y="lat",
     cmap="twilight",
-    fill=False,
+    fill=True,
     thresh=0,
+    bw_adjust=0.1,
     levels=100,
 )
 
@@ -29,4 +30,27 @@ plt.title("Heatmap of Latitude and Longitude")
 
 plt.show()
 
-# plt.scatter(df["lon"], df["lat"], s=2)
+# plt.scatter(aed["lon"], aed["lat"], s=2)
+
+
+intv = pd.read_csv("ant_interventions.csv", index_col=0)
+intv = intv[["Longitude permanence", "Latitude permanence"]]
+intv.rename(
+    columns={"Longitude permanence": "lon", "Latitude permanence": "lat"}, inplace=True
+)
+
+intv.dropna(subset=["lon", "lat"], inplace=True)
+
+print(intv)
+
+sns.kdeplot(
+    data=intv[["lon", "lat"]],
+    x="lon",
+    y="lat",
+    cmap="magma",
+    fill=False,
+    thresh=0,
+    levels=100,
+)
+
+plt.show()
