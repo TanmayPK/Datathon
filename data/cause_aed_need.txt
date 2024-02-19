@@ -1,3 +1,11 @@
+CC (0.3.0) Contact electricity company 0
+CA (0.4.0) Contact mayor 0
+CC (0.3.3) Contact water company 0
+DP (0.1.6) Operational coordination 0
+SI (4.2.2) crashed aircraft 0
+TI (3.7.1) wasps 0
+112-Multi 0
+AD (0.2.0) Activation defibrilator 2
 P033 - Trauma 1
 P059 - Dizziness - Nausea 1
 P019 - Unconscious - syncope 2
@@ -35,6 +43,7 @@ P034 - Skull trauma 0
 LO (5.5.2) reinforcement fire truck ladder 0
 LO (5.5.4) reinforcement extrication 0
 LO (5.5.17) reinforcement safety precautions 0
+LO (5.5.7) reinforcement GRIMP/REDteam 0
 TI (3.2.0) extrication from vehicle 2
 P016 - Pregnancy - Birth 1
 P099 - Interhospital transport 1
@@ -94,6 +103,7 @@ FI B(1.2.1) fire outdoor small 0
 P024 - CO intoxication 0
 FI (1.11.0) fire train/tram/metro 0
 HG (2.3.0) explosion 0
+HG  B(2.3.1) explosion IFDP - terror 0
 FI (1.4.0) fire confined space 0
 LO (5.1.1) assistance ambulance ladder 0
 LO (5.1.2) assistance ambulance ladder 0
@@ -110,6 +120,7 @@ FI B(1.4.2) fire confined space tunnel 0
 TI (3.6.2) large animal in dange 0
 FI B(1.4.3) fire confined space t t m 0
 HG (2.7.0) hazardous goods incident 0
+HG B(2.7.1) hazardous goods incident ADR 0
 TI (3.5.2) risk of element collapse on ground 0
 HG (2.2.0) explosion risk 0
 TI (3.1.4) height/depth rescue 0
@@ -143,12 +154,15 @@ SI (4.5.0) ammunition discovery 0
 SI (4.1.1) bomb threat/suspicious package with departure 0
 SI (4.1.2) bomb threat/suspicious package without departure 0
 LO (5.5.1) reinforcement fire truck pump 0
+LO (5.5.9) reinforcement diving team 0
+LO (5.1.3) assistance ambulance helicopter 0
 TI B(3.1.12) extrication trapped person truck/bus 1
 HG B(2.7.1) hazardous goods incident ADR  0
 TI (3.6.3) animal in the water 0
 TI (3.9.0) water problems/pumping 0
 FI B(1.2.2) fire outdoor large 0
 FI (1.6.2) fire grass/forest/brush expanded 0
+FI (1.6.1) fire grass/forest/brush restricted 0
 TI (3.6.1) small animal in danger 0
 FI (1.8.0) fire building chimney 0
 SI (4.6.0) train/tram/metro accident 1
@@ -168,3 +182,8 @@ P091 - MIP pre-alert 0
 SI (4.4.0) underground pipeline rupture 0
 SI (4.3.0) shipping accident 1
 SI (4.3.1) shipping accident 1
+SI B(4.2.4) Aircraft in distress Full EM type 4 1
+SI B(4.2.3) Aircraft in distress Full EM type 3 1
+SI B(4.2.5) Aircraft in distress Full EM type 5 1
+LO (5.5.0) reinforcement other 1
+SI (4.3.2) shipping accident hazardous goods 1
