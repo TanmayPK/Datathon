@@ -18,9 +18,11 @@ sns.kdeplot(
     cmap="twilight",
     fill=True,
     thresh=0,
-    bw_adjust=0.1,
+    bw_adjust=0.2,
     levels=100,
 )
+
+# plt.scatter(aed["lon"], aed["lat"], s=2)
 
 # Add labels and title
 plt.xlabel("Longitude")
@@ -30,26 +32,28 @@ plt.title("Heatmap of Latitude and Longitude")
 
 plt.show()
 
-# plt.scatter(aed["lon"], aed["lat"], s=2)
 
-
-intv = pd.read_csv("ant_interventions.csv", index_col=0)
-intv = intv[["Longitude permanence", "Latitude permanence"]]
+intv = pd.read_csv("interventions_belgium.csv", index_col=0)
+intv["Latitude intervention"] = intv.index
+intv = intv[intv["AED need level"] >= 2]
+intv = intv[["Longitude intervention", "Latitude intervention"]]
 intv.rename(
-    columns={"Longitude permanence": "lon", "Latitude permanence": "lat"}, inplace=True
+    columns={"Longitude intervention": "lon", "Latitude intervention": "lat"},
+    inplace=True,
 )
 
 intv.dropna(subset=["lon", "lat"], inplace=True)
 
-print(intv)
+# plt.scatter(intv["lon"], intv["lat"], s=2)
 
 sns.kdeplot(
     data=intv[["lon", "lat"]],
     x="lon",
     y="lat",
-    cmap="magma",
-    fill=False,
+    cmap="twilight",
+    fill=True,
     thresh=0,
+    bw_adjust=0.2,
     levels=100,
 )
 
