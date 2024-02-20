@@ -42,7 +42,7 @@ def compute_mean_aed_distance(center, radius, f_intv):
         return new_f_intv["min_distance_to_aed"].mean()
     else:
         return 0
-
+"""
 for city_name, city_center in centers.items():
     radiuses = np.linspace(0.125,10,20)
     mean_distances = np.zeros(radiuses.shape)
@@ -70,6 +70,16 @@ plt.show()
 print(city_name)
 
 """
+radius = 1000
+center=centers["Brussels"]
+print(len(intv))
+intv["distance_from_center"] = np.sqrt( (intv["lat_km"] - center[0])**2 + (intv["lon_km"] - center[1])**2 )
+intv = intv[intv['distance_from_center'] < radius]
+print(len(intv))
+
+plt.hist(intv["log_min_distance_to_aed"], bins=100)
+plt.show()
+
 intv["log_min_distance_to_aed"] = intv["log_min_distance_to_aed"].clip(
     lower=float(input("lower clip value : ")), upper=float(input("upper clip value : "))
 )
@@ -81,4 +91,3 @@ plt.show()
 
 print(intv["min_distance_to_aed"].mean())
 
-"""
