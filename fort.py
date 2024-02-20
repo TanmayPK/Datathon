@@ -5,23 +5,12 @@ from tqdm import tqdm
 import math
 
 intv = pd.read_csv("interventions_belgium_full_id_with_dist.csv", index_col=0)
-# intv_raw = pd.read_csv("interventions_belgium_full_id.csv", index_col=0)
-
-# intv = intv.merge(
-#     intv_raw[["waiting_time", "AED need level"]], left_index=True, right_index=True
-# )
-
-# intv.dropna(subset=["lat"], inplace=True)
-
-# intv.drop_duplicates(inplace=True)
-# print(intv)
-# intv.to_csv("interventions_belgium_full_id_with_dist.csv")
-
 
 intv = intv[intv["AED need level"] >= 2]
 intv = intv[intv["waiting_time"] > 5]
 
 intv["log_min_distance_to_aed"] = np.log(intv["min_distance_to_aed"])
+# intv = intv[intv["log_min_distance_to_aed"] > 0]
 
 centers = {
     "Brussels": [50.846667, 4.3525],
@@ -123,6 +112,7 @@ fig = px.scatter_mapbox(
     center={"lat": 50.8, "lon": 4.45},
     color=intv["log_min_distance_to_aed"],
     mapbox_style="open-street-map",
+    # color_continuous_scale="sunsetdark",
 )
 
 fig.show()
