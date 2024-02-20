@@ -4,24 +4,37 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 import math
 
-intv_raw = pd.read_csv("interventions_belgium_full_id.csv", index_col=0)
 intv = pd.read_csv("interventions_belgium_full_id_with_dist.csv", index_col=0)
-intv = intv.merge(intv_raw, left_index=True, right_index=True)
+# intv_raw = pd.read_csv("interventions_belgium_full_id.csv", index_col=0)
+
+# intv = intv.merge(
+#     intv_raw[["waiting_time", "AED need level"]], left_index=True, right_index=True
+# )
+
+# intv.dropna(subset=["lat"], inplace=True)
+
+# intv.drop_duplicates(inplace=True)
+# print(intv)
+# intv.to_csv("interventions_belgium_full_id_with_dist.csv")
+
 
 intv = intv[intv["AED need level"] >= 2]
+intv = intv[intv["waiting_time"] > 5]
 
 intv["log_min_distance_to_aed"] = np.log(intv["min_distance_to_aed"])
 
-centers = {"Brussels":[50.846667, 4.3525], "Antwerp":[51.217778, 4.400278],
-           "Charleroi":[50.4, 4.433333], "Namen":[50.466667, 4.866667],
-           "Luik":[50.639722, 5.570556], "Arlon":[49.683333, 5.816667]}
+centers = {
+    "Brussels": [50.846667, 4.3525],
+    "Antwerp": [51.217778, 4.400278],
+    "Charleroi": [50.4, 4.433333],
+    "Namen": [50.466667, 4.866667],
+    "Luik": [50.639722, 5.570556],
+    "Arlon": [49.683333, 5.816667],
+}
 
 for city_name, city_center in centers.items():
-    centers[city_name][0] = centers[city_name][0]*111.11111111111111
-    centers[city_name][1] = centers[city_name][1]*71.420845520726
-
-
-
+    centers[city_name][0] = centers[city_name][0] * 111.11111111111111
+    centers[city_name][1] = centers[city_name][1] * 71.420845520726
 
 
 def lat_to_km(lat):
@@ -32,16 +45,21 @@ def lon_to_km(lon):
     return lon * 71.420845520726
 
 
-intv["lat_km"] = intv['lat'] * 111.1111111111111111
-intv["lon_km"] = intv['lon'] * 71.420845520726
+intv["lat_km"] = intv["lat"] * 111.1111111111111111
+intv["lon_km"] = intv["lon"] * 71.420845520726
+
 
 def compute_mean_aed_distance(center, radius, f_intv):
-    f_intv["distance_from_center"] = np.sqrt( (f_intv["lat_km"] - center[0])**2 + (f_intv["lon_km"] - center[1])**2 )
-    new_f_intv = f_intv[f_intv['distance_from_center'] < radius]
+    f_intv["distance_from_center"] = np.sqrt(
+        (f_intv["lat_km"] - center[0]) ** 2 + (f_intv["lon_km"] - center[1]) ** 2
+    )
+    new_f_intv = f_intv[f_intv["distance_from_center"] < radius]
     if len(new_f_intv) != 0:
         return new_f_intv["min_distance_to_aed"].mean()
     else:
         return 0
+
+
 """
 for city_name, city_center in centers.items():
     radiuses = np.linspace(0.125,10,20)
@@ -71,23 +89,47 @@ print(city_name)
 
 """
 radius = 1000
-center=centers["Brussels"]
+center = centers["Brussels"]
 print(len(intv))
-intv["distance_from_center"] = np.sqrt( (intv["lat_km"] - center[0])**2 + (intv["lon_km"] - center[1])**2 )
-intv = intv[intv['distance_from_center'] < radius]
+intv["distance_from_center"] = np.sqrt(
+    (intv["lat_km"] - center[0]) ** 2 + (intv["lon_km"] - center[1]) ** 2
+)
+intv = intv[intv["distance_from_center"] < radius]
 print(len(intv))
 
-plt.hist(intv["log_min_distance_to_aed"], bins=100)
-plt.show()
+# plt.hist(intv["log_min_distance_to_aed"], bins=100)
+# plt.savefig("intv_log_min_dist_hist.png")
 
+lower_clip_value = -3.5
+upper_clip_value = 1.75
 intv["log_min_distance_to_aed"] = intv["log_min_distance_to_aed"].clip(
-    lower=float(input("lower clip value : ")), upper=float(input("upper clip value : "))
+    lower=lower_clip_value, upper=upper_clip_value
+)
+# intv["log_min_distance_to_aed"] = intv["log_min_distance_to_aed"].clip(
+#     lower=float(input("lower clip value : ")), upper=float(input("upper clip value : "))
+# )
+
+import plotly.graph_objects as go
+import plotly.express as px
+
+intv["mission_id"] = intv.index
+
+fig = px.scatter_mapbox(
+    intv,
+    lat="lat",
+    lon="lon",
+    hover_name="mission_id",
+    zoom=7,
+    center={"lat": 50.8, "lon": 4.45},
+    color=intv["log_min_distance_to_aed"],
+    mapbox_style="open-street-map",
 )
 
-plt.scatter(
-    intv["lon"], intv["lat"], c=intv["log_min_distance_to_aed"], cmap="magma", s=5
-)
-plt.show()
+fig.show()
+fig.write_html("mapmap.html")
+# plt.scatter(
+#     intv["lon"], intv["lat"], c=intv["log_min_distance_to_aed"], cmap="magma", s=5
+# )
+# plt.show()
 
-print(intv["min_distance_to_aed"].mean())
-
+# print(intv["min_distance_to_aed"].mean())
