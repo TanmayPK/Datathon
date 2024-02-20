@@ -12,7 +12,7 @@ intv = pd.read_csv("interventions_belgium_full_id.csv", index_col=0)
 
 aed.dropna(subset=["lon", "lat"], inplace=True)
 aed = aed[aed["lon"] < 10]
-aed["coord"] = list(zip(aed["lon"], aed["lat"]))
+aed["coord_km"] = list(zip(aed["lon"]*71.420845520726, aed["lat"]*111.11111111111))
 
 
 intv = intv[["Longitude intervention", "Latitude intervention"]]
@@ -26,8 +26,8 @@ intv.dropna(subset=["lon", "lat"], inplace=True)
 
 
 def get_closest_aed(row):
-    intv_coord = np.array([[row["lon"], row["lat"]]])
-    aed_coords = aed["coord"].values
+    intv_coord = np.array([[row["lon"]*71.420845520726, row["lat"]*111.1111111111]])
+    aed_coords = aed["coord_km"].values
     aed_coords = np.array([np.array([x, y]) for x, y in aed_coords])
 
     distance_to_aeds = cdist(aed_coords, intv_coord, "cityblock")
