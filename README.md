@@ -6,10 +6,13 @@ In the interactive maps, the interventions were classifier by their AED need lev
 
 0 - AED not required.
 Ex : Non medical complaints, e.g small fires, animal rescue
+
 1 - AED not likely needed.
 Ex (among many) : Eye problems, non-traumatic bleeding
+
 2 - AED might be necessary. 
 Ex : Unconscious, chest pain, Respiratory problems
+
 3 - AED absolutely necessary. 
 Ex : Cardiac arrest
 
