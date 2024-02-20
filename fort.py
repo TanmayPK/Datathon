@@ -12,10 +12,9 @@ intv = intv[intv["AED need level"] >= 2]
 
 intv["log_min_distance_to_aed"] = np.log(intv["min_distance_to_aed"])
 
-centers = {"brussels":[50.846667, 4.3525], "antwerp":[51.217778, 4.400278],
-           "charleroi":[50.4, 4.433333], "namen":[50.466667, 4.866667],
-           "luik":[50.639722, 5.570556], "arlon":[49.683333, 5.816667],
-           "waver":[50.716667, 4.6 ]}
+centers = {"Brussels":[50.846667, 4.3525], "Antwerp":[51.217778, 4.400278],
+           "Charleroi":[50.4, 4.433333], "Namen":[50.466667, 4.866667],
+           "Luik":[50.639722, 5.570556], "Arlon":[49.683333, 5.816667]}
 
 for city_name, city_center in centers.items():
     centers[city_name][0] = centers[city_name][0]*111.11111111111111
@@ -45,7 +44,7 @@ def compute_mean_aed_distance(center, radius, f_intv):
         return 0
 
 for city_name, city_center in centers.items():
-    radiuses = np.linspace(0.125,10,2000)
+    radiuses = np.linspace(0.125,10,20)
     mean_distances = np.zeros(radiuses.shape)
     for i in range(len(radiuses)):
         mean_distances[i] = compute_mean_aed_distance(city_center, radiuses[i], intv)
@@ -55,6 +54,20 @@ plt.legend()
 plt.xlabel("Radius")
 plt.ylabel("Mean AED-distance")
 plt.show()
+
+mean_distances = np.zeros(len(centers))
+c=0
+for city_name, city_center in centers.items():
+    radius = 0.3
+    mean_distances[c] = compute_mean_aed_distance(city_center, radius, intv)
+    c+=1
+    
+plt.bar(range(len(mean_distances)), mean_distances, align='center')
+plt.xticks(range(len(centers)), list(centers.keys()))
+plt.ylabel("Mean Distance from AED")
+plt.title("Mean distance from AED in case of incident in City Center")
+plt.show()
+print(city_name)
 
 """
 intv["log_min_distance_to_aed"] = intv["log_min_distance_to_aed"].clip(
