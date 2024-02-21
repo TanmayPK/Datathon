@@ -13,13 +13,10 @@ intv["log_min_distance_to_aed"] = np.log(intv["min_distance_to_aed"])
 # intv = intv[intv["log_min_distance_to_aed"] > 0]
 
 centers = {
+    "Antwerp": [51.21134409768845, 4.426236733738253],"Arlon": [49.683333, 5.816667],
     "Brussels": [50.846667, 4.3525],
-    "Antwerp": [51.217778, 4.400278],
-    "Charleroi": [50.4, 4.433333],
-    "Namen": [50.466667, 4.866667],
-    "Luik": [50.639722, 5.570556],
-    "Arlon": [49.683333, 5.816667],
-    "Hasselt":[50.93, 5.3375]
+    "Charleroi": [50.4, 4.433333],"Hasselt":[50.93, 5.3375],"Luik": [50.639722, 5.570556],
+    "Namen": [50.466667, 4.866667]
 }
 
 for city_name, city_center in centers.items():
