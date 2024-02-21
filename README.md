@@ -29,3 +29,7 @@ Interactive map showing the interventions of AED need level 2 and higher, with a
 ### interactive_map_closest_AED_large_distances.html
 Interactive map showing the interventions of AED need level 2 and higher, with a waiting time that was more than 5 minutes, and where the distance to the closest AED (in Manhattan distance) was more than 1km. The points are also colored proportionately to the distance to the closest AED.
 
+## Image Files Content:
+
+### mean_aed_distance_city_center_300m.png
+Bar plot showing the mean Manhattan distance (in km) to the closest AED for intervention with an AED need level of 2 or more, in a circle of radius 300m with its center in the center of different cities. We intended this plot as a measure of how well placed the AED were in a given city center. Note that not many Flemish cities were included, because we lacked the intervention data to do so.
