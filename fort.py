@@ -19,6 +19,7 @@ centers = {
     "Namen": [50.466667, 4.866667],
     "Luik": [50.639722, 5.570556],
     "Arlon": [49.683333, 5.816667],
+    "Hasselt":[50.93, 5.3375]
 }
 
 for city_name, city_center in centers.items():
@@ -49,7 +50,7 @@ def compute_mean_aed_distance(center, radius, f_intv):
         return 0
 
 
-"""
+
 for city_name, city_center in centers.items():
     radiuses = np.linspace(0.125,10,20)
     mean_distances = np.zeros(radiuses.shape)
@@ -123,3 +124,4 @@ fig.write_html("mapmap.html")
 # plt.show()
 
 # print(intv["min_distance_to_aed"].mean())
+"""
